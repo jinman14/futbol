@@ -3,6 +3,7 @@ require 'pry'
 class CSVHelper
     @@teams = []
     @@games = []
+    @@game_teams = []
 
     def self.teamsCSV(filepath)
         CSV.foreach(filepath, headers: true, header_converters: :symbol) do |row|
@@ -34,6 +35,29 @@ class CSVHelper
             )
         end
         @@games
+    end
+
+    def self.game_teamsCSV(filepath)
+        CSV.foreach(filepath, headers: true, header_converters: :symbol) do |row|
+            @@game_teams << GameTeam.new(
+                row[:game_id].to_i,
+                row[:team_id].to_i,
+                row[:hoa],
+                row[:result],
+                row[:settled_in],
+                row[:head_coach],
+                row[:goals].to_i,
+                row[:shots].to_i,
+                row[:tackles].to_i,
+                row[:pim].to_i,
+                row[:powerplayopportunities].to_i,
+                row[:powerplaygoals].to_i,
+                row[:faceoffwinpercentage].to_f,
+                row[:giveaways].to_i,
+                row[:takeaways].to_i
+            )
+        end
+        @@game_teams
     end
 
     def self.all_teams

@@ -36,6 +36,28 @@ describe CSVHelper do
         end
     end
 
+    describe '#self.game_teams' do
+        it 'can parse game_teams.csv' do
+            game_teams = CSVHelper.game_teamsCSV('./data/game_teams.csv')
+
+            expect(game_teams[0].game_id).to eq 2012030221
+            expect(game_teams[0].team_id).to eq 3
+            expect(game_teams[0].hoa).to eq "away"
+            expect(game_teams[0].result).to eq "LOSS"
+            expect(game_teams[0].settled_in).to eq "OT"
+            expect(game_teams[0].head_coach).to eq "John Tortorella"
+            expect(game_teams[0].goals).to eq 2
+            expect(game_teams[0].shots).to eq 8
+            expect(game_teams[0].tackles).to eq 44
+            expect(game_teams[0].pim).to eq 8
+            expect(game_teams[0].power_play_opportunities).to eq 3
+            expect(game_teams[0].power_play_goals).to eq 0
+            expect(game_teams[0].face_off_win_percentage).to eq 44.8
+            expect(game_teams[0].giveaways).to eq 17
+            expect(game_teams[0].takeaways).to eq 7
+        end
+    end
+
     describe '#self.all_teams' do
         it 'can return an array of all teams' do
             expect(CSVHelper.all_teams.count).to eq 32
