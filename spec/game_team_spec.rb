@@ -6,7 +6,7 @@ SimpleCov.start
 
 describe GameTeam do
     before :each do
-        @game_team = GameTeams.new(2012030221,3,"away","LOSS","OT","John Tortorella",2,8,44,8,3,0,44.8,17,7)
+        @game_team = GameTeam.new(2012030221,3,"away","LOSS","OT","John Tortorella",2,8,44,8,3,0,44.8,17,7)
     end
 
     describe '#intialize' do
