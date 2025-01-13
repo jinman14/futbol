@@ -69,4 +69,10 @@ describe CSVHelper do
             expect(CSVHelper.all_games.count).to eq 7441
         end
     end
+
+    describe '#self.all_game_teams' do
+        it 'can return an array of all game teams' do
+            expect(CSVHelper.all_game_teams.count).to eq 14882
+        end
+    end
 end

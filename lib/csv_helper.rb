@@ -67,4 +67,8 @@ class CSVHelper
     def self.all_games
         @@games
     end
+
+    def self.all_game_teams
+        @@game_teams
+    end
 end
