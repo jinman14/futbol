@@ -1,13 +1,11 @@
 require 'csv'
 require 'pry'
 class CSVHelper
-    @@teams = []
-    @@games = []
-    @@game_teams = []
 
     def self.teamsCSV(filepath)
+        teams = []
         CSV.foreach(filepath, headers: true, header_converters: :symbol) do |row|
-            @@teams << Team.new(
+            teams << Team.new(
                 row[:team_id].to_i,
                 row[:franchiseid].to_i,
                 row[:teamname],
@@ -16,12 +14,13 @@ class CSVHelper
                 row[:link]
             )
         end
-        @@teams
+        teams
     end
 
     def self.gamesCSV(filepath)
+        games = []
         CSV.foreach(filepath, headers: true, header_converters: :symbol) do |row|
-            @@games << Game.new(
+            games << Game.new(
                 row[:game_id].to_i,
                 row[:season].to_i,
                 row[:type],
@@ -34,12 +33,14 @@ class CSVHelper
                 row[:venue_link]
             )
         end
-        @@games
+        binding.pry
+        games
     end
 
     def self.game_teamsCSV(filepath)
+        game_teams = []
         CSV.foreach(filepath, headers: true, header_converters: :symbol) do |row|
-            @@game_teams << GameTeam.new(
+            game_teams << GameTeam.new(
                 row[:game_id].to_i,
                 row[:team_id].to_i,
                 row[:hoa],
@@ -57,18 +58,6 @@ class CSVHelper
                 row[:takeaways].to_i
             )
         end
-        @@game_teams
-    end
-
-    def self.all_teams
-        @@teams
-    end
-
-    def self.all_games
-        @@games
-    end
-
-    def self.all_game_teams
-        @@game_teams
+        game_teams
     end
 end
