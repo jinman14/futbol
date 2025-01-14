@@ -24,4 +24,10 @@ class GameStatistics
 
         (visitor_wins / @@games.size).round(2)
     end
+
+    def self.percentage_ties
+        ties = @@games.count { |game| game.home_goals == game.away_goals }.to_f
+
+        (ties / @@games.size).round(2)
+    end
 end

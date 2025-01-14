@@ -30,4 +30,10 @@ describe GameStatistics do
             expect(GameStatistics.percentage_visitor_wins).to eq 0.36
         end
     end
+
+    describe '#percentage_ties' do
+        it 'can return the percentage of games that tied' do
+            expect(GameStatistics.percentage_ties).to eq 0.20
+        end
+    end
 end
