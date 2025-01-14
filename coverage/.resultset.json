@@ -1,0 +1,171 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/spec/game_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/lib/game.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          null,
+          null
+        ]
+      },
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/spec/game_team_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/lib/game_team.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          14883,
+          null,
+          null
+        ]
+      },
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/spec/stats_helper_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/lib/stats_helper.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          7441,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jinman/turing_work/1mod/group_proj/futbol/spec/team_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1736890615
+  }
+}
