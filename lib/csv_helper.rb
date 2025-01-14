@@ -33,7 +33,6 @@ class CSVHelper
                 row[:venue_link]
             )
         end
-        binding.pry
         games
     end
 
