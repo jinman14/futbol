@@ -18,9 +18,14 @@ describe League_Statistics do
     end
   end
 
-  describe 'count_of_teams' do
+  describe '#count_of_teams' do
     it 'can count teams' do
       expect(@league_stats.count_of_teams).to eq(32)
     end
+  end
+
+  describe '#best_offense' do
+  it 'can return team with  highest average goals' do
+    expect(@league_stats.best_offense).to eq()
   end
 end

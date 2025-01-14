@@ -2,9 +2,9 @@ require './lib/csv_helper'
 
 class League_Statistics
 
-  attr_reader :games, :teams
+  attr_reader :games, :teams, :game_teams
   
-  def initialize(teams, games)
+  def initialize(teams, games, game_teams)
     @teams = CSVHelper.teamsCSV(teams)
     @games = CSVHelper.gamesCSV(games)
     @game_teams = CSVHelper.game_teamsCSV(game_teams)
@@ -16,8 +16,8 @@ class League_Statistics
 
   def best_offense
     #for each teamid in game_teams, add goals together and divide by 14882
-    @game_teams.each do |game_team|
-      game_team[:team_id]
+    @game_teams.each do |team|
+      team[:team_id].uniq?
     end
   end
 end
