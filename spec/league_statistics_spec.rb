@@ -5,11 +5,12 @@ require './lib/csv_helper'
 require './lib/league_statistics'
 require './lib/team'
 require './lib/game'
+require 'pry'
 SimpleCov.start
 
 describe League_Statistics do
   before :each do
-    @league_stats = League_Statistics.new('./data/teams.csv', './data/games.csv')
+    @league_stats = League_Statistics.new('./data/teams.csv', './data/games.csv', './data/game_teams.csv')
   end
 
   describe '#initialize' do
@@ -25,7 +26,13 @@ describe League_Statistics do
   end
 
   describe '#best_offense' do
-  it 'can return team with  highest average goals' do
-    expect(@league_stats.best_offense).to eq()
+    it 'can return team with  highest average goals' do
+      expect(@league_stats.best_offense).to eq()
+    end
+  end
+  describe '#games_played' do
+    it 'can return amount of games played by team id' do
+      expect(@league_stats.games_played(1)).to eq(463)
+    end
   end
 end
