@@ -30,4 +30,16 @@ class GameStatistics
 
         (ties / @@games.size).round(2)
     end
+
+    def self.count_of_games_by_season
+        seasonal_games = {}
+
+        seasons = []
+
+        @@games.each { |game| seasons << game.season if !seasons.include?(game.season) }
+        
+        seasons.each do |season|
+
+        end
+    end
 end
