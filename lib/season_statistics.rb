@@ -1,11 +1,10 @@
 class SeasonStatistics
-  
-  def initialize
-    
-  end
+  @@games = CSVHelper.gamesCSV('./data/games.csv')
 
-  def winningest_coach #to get this, collect all the wins, and see which coach name is associated with the highest single number. return their name.
-
+  def self.winningest_coach #to get this, collect all the wins, and see which coach name is associated with the highest single number. return their name.
+    season_games = {}
+    seasons = StatHelper.seasons
+    games = 
   end
 
   # def worst_coach
