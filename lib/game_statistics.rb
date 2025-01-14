@@ -10,4 +10,10 @@ class GameStatistics
         lowest_score = @@games.min_by { |game| game.home_goals + game.away_goals }
         lowest_score.home_goals + lowest_score.away_goals
     end
+
+    def self.percentage_home_wins
+        home_wins = @@games.count { |game| game.home_goals > game.away_goals }.to_f
+
+        (home_wins / @@games.size).round(2)
+    end
 end
