@@ -34,12 +34,12 @@ class GameStatistics
     def self.count_of_games_by_season
         seasonal_games = {}
 
-        seasons = []
+        seasons = StatsHelper.seasons
 
-        @@games.each { |game| seasons << game.season if !seasons.include?(game.season) }
-        
         seasons.each do |season|
-
+            seasonal_games[season.to_s] = @@games.find_all { |game| game.season == season }.count
         end
+
+        seasonal_games
     end
 end
