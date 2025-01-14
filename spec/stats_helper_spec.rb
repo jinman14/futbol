@@ -15,4 +15,10 @@ RSpec.describe StatsHelper do
       expect(StatsHelper.seasons).to eq([20122013, 20162017, 20142015, 20152016, 20132014, 20172018])
     end
   end
+
+  describe '#team_ids' do
+    it 'can return an array of team IDs' do
+      expect(StatsHelper.team_ids.count).to eq(32)
+    end
+  end
 end
