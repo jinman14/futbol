@@ -1,10 +1,12 @@
 class SeasonStatistics
   @@games = CSVHelper.gamesCSV('./data/games.csv')
 
-  def self.winningest_coach #to get this, collect all the wins, and see which coach name is associated with the highest single number. return their name.
-    season_games = {}
-    seasons = StatHelper.seasons
-    games = 
+  def self.winningest_coach
+
+    StatsHelper.seasons.each do |season|
+      
+    end
+    
   end
 
   # def worst_coach
@@ -26,4 +28,10 @@ class SeasonStatistics
   # def fewest_tackles
     
   # end
+
+  def coach_win_percent(coach)
+    search_coach = coach
+
+    
+  end
 end
