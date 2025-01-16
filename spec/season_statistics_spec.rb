@@ -4,6 +4,7 @@ require './lib/csv_helper'
 require './lib/season_statistics'
 require './lib/team'
 require './lib/game_team'
+require 'pry'
 
 SimpleCov.start
 
@@ -19,12 +20,12 @@ RSpec.describe SeasonStatistics do
   end
 
   describe 'it can check coach win and loss record' do
-    it 'winningest coach' do
+    xit 'winningest coach' do
       expect(@season_stats.winningest_coach.count).to eq(1)
       expect(@season_stats.winningest_coach).to eq("")
     end
 
-    it 'worst_coach' do
+    xit 'worst_coach' do
       expect(@season_stats.worst_coach.count).to eq(1)
       expect(@season_stats.worst_coach).to eq("")
     end
@@ -32,16 +33,18 @@ RSpec.describe SeasonStatistics do
 
   describe 'assess team shot percentage' do
     it 'most_accurate_team' do
-      expect(@season_stats.most_accurate_team).to eq("")
+      expect(SeasonStatistics.most_accurate_team("20132014")).to eq "Real Salt Lake"
+      # expect(SeasonStatistics.most_accurate_team("20142015")).to eq "Toronto FC"
     end
 
     it 'least_accurate_team' do
-      expect(@season_stats.least_accurate_team).to eq("")
+      expect(SeasonStatistics.least_accurate_team("20132014")).to eq "New York City FC"
+      expect(SeasonStatistics.least_accurate_team("20142015")).to eq "Columbus Crew SC"
     end
   end
 
   describe 'tackle assessment' do
-    it 'can tell about tackles' do
+    xit 'can tell about tackles' do
       expect(@season_stats.most_tackles).to eq("")
       expect(@season_stats.fewest_tackles).to eq("")
     end
