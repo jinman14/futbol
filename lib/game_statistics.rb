@@ -42,4 +42,11 @@ class GameStatistics
 
         seasonal_games
     end
+
+    def self.average_goals_per_game
+        total_goals = @@games.sum do |game|
+            game.home_goals + game.away_goals
+        end.to_f
+        (total_goals / @@games.count).round(2)
+    end
 end

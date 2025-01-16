@@ -52,4 +52,10 @@ describe GameStatistics do
             )
         end
     end
+
+    describe '#average_goals_per_game' do
+        it 'can average the goals per game' do
+            expect(GameStatistics.average_goals_per_game).to eq(4.22)
+        end
+    end
 end
