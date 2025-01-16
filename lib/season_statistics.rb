@@ -1,13 +1,13 @@
 class SeasonStatistics
   @@games = CSVHelper.gamesCSV('./data/games.csv')
 
-  def self.winningest_coach
+  # def self.winningest_coach
 
-    StatsHelper.seasons.each do |season|
+  #   StatsHelper.seasons.each do |season|
       
-    end
+  #   end
     
-  end
+  # end
 
   # def worst_coach
 
@@ -29,7 +29,8 @@ class SeasonStatistics
       tackles_per_team[game_team.team_id] += game_team.tackles
     end
 
-    most_tackles = tackles_per_team.max_by { |team_id, tackles| tackles}.name
+    most_tackles = tackles_per_team.max_by { |team_id, tackles| tackles}.team_name
+    most_tackles
   end
 
   # def fewest_tackles()

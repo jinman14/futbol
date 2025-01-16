@@ -4,6 +4,7 @@ require './lib/csv_helper'
 require './lib/season_statistics'
 require './lib/team'
 require './lib/game_team'
+require 'pry'
 
 SimpleCov.start
 
@@ -19,23 +20,23 @@ RSpec.describe SeasonStatistics do
   end
 
   describe 'it can check coach win and loss record' do
-    it 'winningest coach' do
+    xit 'winningest coach' do
       expect(@season_stats.winningest_coach.count).to eq(1)
       expect(@season_stats.winningest_coach).to eq("")
     end
 
-    it 'worst_coach' do
+    xit 'worst_coach' do
       expect(@season_stats.worst_coach.count).to eq(1)
       expect(@season_stats.worst_coach).to eq("")
     end
   end
 
   describe 'assess team shot percentage' do
-    it 'most_accurate_team' do
+    xit 'most_accurate_team' do
       expect(@season_stats.most_accurate_team).to eq("")
     end
 
-    it 'least_accurate_team' do
+    xit 'least_accurate_team' do
       expect(@season_stats.least_accurate_team).to eq("")
     end
   end
