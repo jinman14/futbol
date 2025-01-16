@@ -42,6 +42,12 @@ class League_Statistics
     @teams.select { |team| team.team_id == highest_home_team }[0].team_name
   end
 
+  def lowest_scoring_visitor
+    lowest_visitor = goals(:away).min_by { |team_id, average_goals| average_goals}[0]
+
+    @teams.select { |team| team.team_id == lowest_visitor }[0].team_name
+  end
+
   def games_played(team_id)
     @game_teams.find_all do |game_team|
       game_team.team_id == team_id

@@ -54,4 +54,11 @@ describe League_Statistics do
       expect(@league_stats.highest_scoring_home_team).to eq('Reign FC')
     end
   end
+
+  describe '#lowest_scoring_visitor' do
+    it 'can return the lowest scoring visiting team' do
+      expect(@league_stats.lowest_scoring_visitor).to eq('San Jose Earthquakes')
+    end
+  end
+
 end
