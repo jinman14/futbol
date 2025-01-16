@@ -42,8 +42,8 @@ RSpec.describe SeasonStatistics do
 
   describe 'tackle assessment' do
     it 'can tell about tackles' do
-      expect(@season_stats.most_tackles).to eq("")
-      expect(@season_stats.fewest_tackles).to eq("")
+      expect(@season_stats.most_tackles("20132014")).to eq("FC Cincinnati")
+      expect(@season_stats.fewest_tackles("20132014")).to eq("Atlanta United")
     end
   end
 
