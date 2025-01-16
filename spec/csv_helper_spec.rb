@@ -3,6 +3,8 @@ require 'simplecov'
 require './lib/csv_helper'
 require './lib/team'
 
+require 'pry'
+
 SimpleCov.start
 
 describe CSVHelper do
