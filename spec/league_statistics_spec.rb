@@ -48,4 +48,10 @@ describe League_Statistics do
       expect(@league_stats.highest_scoring_visitor).to eq('FC Dallas')
     end
   end
+
+  describe '#highest_scoring_home_team' do
+    it 'can return highest scoring home team' do
+      expect(@league_stats.highest_scoring_home_team).to eq('Reign FC')
+    end
+  end
 end
