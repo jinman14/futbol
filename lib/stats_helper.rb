@@ -1,10 +1,13 @@
 require './lib/csv_helper'
 require './lib/game'
 require './lib/team'
+require './lib/game_team'
 
 class StatsHelper
   @@games = CSVHelper.gamesCSV('./data/games.csv')
   @@teams = CSVHelper.teamsCSV('./data/teams.csv')
+  @@game_teams = CSVHelper.game_teamsCSV('./data/game_teams.csv')
+
   def self.seasons
     seasons = []
     
@@ -23,5 +26,15 @@ class StatsHelper
     end
 
     team_ids
+  end
+
+  def self.coaches
+    coaches = []
+
+    @@game_teams.each do |game_teams|
+      coaches << game_teams.head_coach if !coaches.include?(game_teams.head_coach)
+    end
+
+    coaches
   end
 end
