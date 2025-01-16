@@ -44,10 +44,7 @@ class GameStatistics
     end
 
     def self.average_goals_per_game
-        total_goals = @@games.sum do |game|
-            game.home_goals + game.away_goals
-        end.to_f
-        (total_goals / @@games.count).round(2)
+        self.total_goals_average(@@games)
     end
 
     def self.average_goals_by_season
@@ -58,13 +55,19 @@ class GameStatistics
         seasons.each do |season|
             season_games = @@games.find_all { |game| game.season == season }
 
-            total_goals = season_games.sum do |game|
-                game.home_goals + game.away_goals
-            end.to_f
-
-            season_goals[season.to_s] = (total_goals / season_games.count).round(2)
+            season_goals[season.to_s] = self.total_goals_average(season_games)
         end
 
         season_goals
+    end
+
+    private
+
+    def self.total_goals_average(games)
+
+        total_goals = games.sum do |game|
+            game.home_goals + game.away_goals
+        end.to_f
+        (total_goals / games.count).round(2)
     end
 end
