@@ -21,18 +21,6 @@ RSpec.describe SeasonStatistics do
     end
   end
 
-  describe 'it can check coach win and loss record' do
-    xit 'winningest coach' do
-      expect(@season_stats.winningest_coach.count).to eq(1)
-      expect(@season_stats.winningest_coach).to eq("")
-    end
-
-    xit 'worst_coach' do
-      expect(@season_stats.worst_coach.count).to eq(1)
-      expect(@season_stats.worst_coach).to eq("")
-    end
-  end
-
   describe 'assess team shot percentage' do
     it 'most_accurate_team' do
       expect(SeasonStatistics.most_accurate_team("20132014")).to eq "Real Salt Lake"
@@ -42,13 +30,6 @@ RSpec.describe SeasonStatistics do
     it 'least_accurate_team' do
       expect(SeasonStatistics.least_accurate_team("20132014")).to eq "New York City FC"
       expect(SeasonStatistics.least_accurate_team("20142015")).to eq "Columbus Crew SC"
-    end
-  end
-
-  describe 'tackle assessment' do
-    xit 'can tell about tackles' do
-      expect(@season_stats.most_tackles).to eq("")
-      expect(@season_stats.fewest_tackles).to eq("")
     end
   end
 end

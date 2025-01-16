@@ -84,8 +84,6 @@ class SeasonStatistics
     end
 
     accuracy
-
-    @@game_teams.find_all { |game| games.include?(game.game_id) }
   end
 
   def self.sort_coach_games(games)
