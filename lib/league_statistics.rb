@@ -15,11 +15,11 @@ class League_Statistics
   end
 
   def best_offense
-    
+
   end
 
   def games_played(team_id)
-    @game_teams.count do |game_team|
+    @game_teams.find_all do |game_team|
       game_team.team_id == team_id
     end
   end
