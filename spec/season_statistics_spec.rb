@@ -9,13 +9,15 @@ require 'pry'
 SimpleCov.start
 
 RSpec.describe SeasonStatistics do
-  before(:each) do 
-    @season_stats = CSVHelper.game_teamsCSV('./data/game_teams.csv')
-  end
+  describe 'season coach wins' do
+    it '#self.winningest_coach(season) can return the coach with the best record in a season' do
+      expect(SeasonStatistics.winningest_coach("20132014")).to eq "Claude Julien"
+      expect(SeasonStatistics.winningest_coach("20142015")).to eq "Alain Vigneault"
+    end
 
-  describe 'can initialize season statistics' do
-    it 'can start' do
-      expect(@season_stats[0].result).to eq "LOSS"
+    it "#self.worst_coach(season) can return the coach with the worst record in a season" do
+      expect(SeasonStatistics.worst_coach("20132014")).to eq "Peter Laviolette"
+      expect(SeasonStatistics.worst_coach("20142015")).to eq("Craig MacTavish").or(eq("Ted Nolan"))
     end
   end
 
@@ -49,5 +51,4 @@ RSpec.describe SeasonStatistics do
       expect(@season_stats.fewest_tackles).to eq("")
     end
   end
-
 end

@@ -16,7 +16,7 @@ describe GameStatistics do
 
     describe '#self.lowest_total_score' do
         it 'can return the lowest scored game' do
-           expect(GameStatistics.lowest_total_score).to eq 0 
+            expect(GameStatistics.lowest_total_score).to eq 0 
         end
     end
 

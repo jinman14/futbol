@@ -21,4 +21,10 @@ RSpec.describe StatsHelper do
       expect(StatsHelper.team_ids.count).to eq(32)
     end
   end
+
+  describe '#coaches' do
+    it 'can return coaches' do
+      expect(StatsHelper.coaches.count).to eq(61)
+    end
+  end
 end
