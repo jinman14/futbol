@@ -8,22 +8,20 @@ class SeasonStatistics
 
   def self.winningest_coach(season)
     season_games = self.game_teams_in_season(season)
-    season_teams = self.sort_team_games(season_games)
-    season_wins = self.team_wins(season_teams)
+    season_coaches = self.sort_coach_games(season_games)
+    season_wins = self.coaches_wins(season_coaches)
 
-    best_team = season_wins.max_by { |team_id, win_percentage| win_percentage }[0]
+    season_wins.max_by { |coach, win_percentage| win_percentage }[0]
 
-    @@game_teams.find { |game| game.team_id == best_team }.head_coach
   end
 
   def self.worst_coach(season)
     season_games = self.game_teams_in_season(season)
-    season_teams = self.sort_team_games(season_games)
-    season_wins = self.team_wins(season_teams)
+    season_coaches = self.sort_coach_games(season_games)
+    season_wins = self.coaches_wins(season_coaches)
 
-    worst_team = season_wins.min_by { |team_id, win_percentage| win_percentage }[0]
+    season_wins.min_by { |coach, win_percentage| win_percentage }[0]
 
-    @@game_teams.find { |game| game.team_id == worst_team }.head_coach
   end
 
   # def most_accurate_team(season)
@@ -50,26 +48,26 @@ class SeasonStatistics
   end
 
   def self.sort_coach_games(games)
-    team_ids = StatsHelper.team_ids
-    coaches = {}
+    head_coaches = StatsHelper.coaches
+    coaches_games = {}
 
-    team_ids.each { |team_id| teams[team_id] = [] }
+    head_coaches.each { |coach| coaches_games[coach] = [] }
 
-    games.each { |game| teams[game.team_id] << game }
+    games.each { |game| coaches_games[game.head_coach] << game }
 
-    teams
+    coaches_games
   end
 
-  def self.team_wins(teams)
-    team_ids = StatsHelper.team_ids
-    team_wins = {}
+  def self.coaches_wins(coaches)
+    
+    coaches_wins = {}
 
-    teams.each do |team_id, games|
+    coaches.each do |coach, games|
       next if games.size == 0
       wins = games.count { |game| game.result == 'WIN' }
-      team_wins[team_id] = wins.to_f / games.count
+      coaches_wins[coach] = wins.to_f / games.count
     end
 
-    team_wins
+    coaches_wins
   end
 end
