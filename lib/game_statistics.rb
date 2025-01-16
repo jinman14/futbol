@@ -49,4 +49,22 @@ class GameStatistics
         end.to_f
         (total_goals / @@games.count).round(2)
     end
+
+    def self.average_goals_by_season
+        season_goals = {}
+
+        seasons = StatsHelper.seasons
+
+        seasons.each do |season|
+            season_games = @@games.find_all { |game| game.season == season }
+
+            total_goals = season_games.sum do |game|
+                game.home_goals + game.away_goals
+            end.to_f
+
+            season_goals[season.to_s] = (total_goals / season_games.count).round(2)
+        end
+
+        season_goals
+    end
 end
