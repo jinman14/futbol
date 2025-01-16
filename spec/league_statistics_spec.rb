@@ -61,4 +61,9 @@ describe League_Statistics do
     end
   end
 
+  describe '#lowest_scoring_home_team' do
+    it 'can return the lowest scoring home team' do
+      expect(@league_stats.lowest_scoring_home_team).to eq('Utah Royals FC')
+    end
+  end
 end
