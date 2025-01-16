@@ -26,13 +26,26 @@ describe League_Statistics do
   end
 
   describe '#best_offense' do
-    it 'can return team with  highest average goals' do
-      expect(@league_stats.best_offense).to eq()
+    it 'can return team with highest average goals' do
+      expect(@league_stats.best_offense).to eq("Reign FC")
     end
   end
+
+  describe '#worst_by' do
+    it 'can return the team with the lowest average goals' do
+      expect(@league_stats.worst_offense).to eq("Utah Royals FC")
+    end
+  end
+
   describe '#games_played' do
     it 'can return amount of games played by team id' do
       expect(@league_stats.games_played(1)).to eq(463)
+    end
+  end
+
+  describe '#highest_scoring_visitor' do
+    it 'can return highest scoring visitor' do
+      expect(@league_stats.highest_scoring_visitor).to eq('FC Dallas')
     end
   end
 end
