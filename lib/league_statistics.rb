@@ -22,6 +22,14 @@ class League_Statistics
     @teams.select { |team| team.team_id == best_offence_id }[0].team_name
   end
 
+  def worst_offense
+    teams_average_offence = average_offence
+
+    worst_offence_id = teams_average_offence.min_by { |team_id, average_goals| average_goals }[0]
+
+    @teams.select { |team| team.team_id == worst_offence_id }[0].team_name
+  end
+
   def games_played(team_id)
     @game_teams.count do |game_team|
       game_team.team_id == team_id
