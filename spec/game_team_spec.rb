@@ -1,8 +1,8 @@
-require 'rspec'
 require 'simplecov'
+SimpleCov.start
+require 'rspec'
 require './lib/game_team'
 
-SimpleCov.start
 
 describe GameTeam do
     before :each do

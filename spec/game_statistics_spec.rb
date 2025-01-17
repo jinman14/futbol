@@ -1,11 +1,11 @@
-require 'rspec'
 require 'simplecov'
+SimpleCov.start
+require 'rspec'
 require './lib/game_statistics'
 require './lib/stats_helper'
 
 require 'pry'
 
-SimpleCov.start
 
 describe GameStatistics do
     describe '#self.highest_total_score' do
