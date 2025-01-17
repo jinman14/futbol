@@ -9,12 +9,13 @@ require 'pry'
 
 
 RSpec.describe SeasonStatistics do
-<<<<<<< HEAD
   describe 'tackle assessment' do
     it 'can tell about tackles' do
       expect(SeasonStatistics.most_tackles("20132014")).to eq("FC Cincinnati")
       expect(SeasonStatistics.fewest_tackles("20132014")).to eq("Atlanta United")
-=======
+    end
+  end
+  
   describe 'season coach wins' do
     it '#self.winningest_coach(season) can return the coach with the best record in a season' do
       expect(SeasonStatistics.winningest_coach("20132014")).to eq "Claude Julien"
@@ -36,7 +37,6 @@ RSpec.describe SeasonStatistics do
     it 'least_accurate_team' do
       expect(SeasonStatistics.least_accurate_team("20132014")).to eq "New York City FC"
       expect(SeasonStatistics.least_accurate_team("20142015")).to eq "Columbus Crew SC"
->>>>>>> fd576e62725f2bc381c573fa3ef44e1f35207175
     end
   end
 end
