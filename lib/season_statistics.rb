@@ -73,10 +73,6 @@ class SeasonStatistics
     end.team_name
   end
   
-  def coach_win_percent(coach)
-    search_coach = coach
-  end
-  
   private
 
   def self.game_teams_in_season(season)
