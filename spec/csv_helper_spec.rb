@@ -1,9 +1,11 @@
-require 'rspec'
 require 'simplecov'
+SimpleCov.start
+require 'rspec'
 require './lib/csv_helper'
 require './lib/team'
 
-SimpleCov.start
+require 'pry'
+
 
 describe CSVHelper do
     describe '#self.teamsCSV' do
