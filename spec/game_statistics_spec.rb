@@ -1,11 +1,11 @@
-require 'rspec'
 require 'simplecov'
+SimpleCov.start
+require 'rspec'
 require './lib/game_statistics'
 require './lib/stats_helper'
 
 require 'pry'
 
-SimpleCov.start
 
 describe GameStatistics do
     describe '#self.highest_total_score' do
@@ -16,7 +16,7 @@ describe GameStatistics do
 
     describe '#self.lowest_total_score' do
         it 'can return the lowest scored game' do
-           expect(GameStatistics.lowest_total_score).to eq 0 
+            expect(GameStatistics.lowest_total_score).to eq 0 
         end
     end
 

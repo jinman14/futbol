@@ -1,12 +1,12 @@
-require 'rspec'
 require 'simplecov'
+SimpleCov.start
+require 'rspec'
 require './lib/stats_helper'
 require './lib/csv_helper'
 require './lib/game'
 require './lib/team'
 require './lib/game_team'
 
-SimpleCov.start
 
 RSpec.describe StatsHelper do
   
@@ -19,6 +19,12 @@ RSpec.describe StatsHelper do
   describe '#team_ids' do
     it 'can return an array of team IDs' do
       expect(StatsHelper.team_ids.count).to eq(32)
+    end
+  end
+
+  describe '#coaches' do
+    it 'can return coaches' do
+      expect(StatsHelper.coaches.count).to eq(61)
     end
   end
 end
