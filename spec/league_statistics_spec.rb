@@ -10,7 +10,7 @@ require 'pry'
 
 describe League_Statistics do
   before :all do
-    League_Statistics.set_gameCSV('./data/teams.csv', './data/games.csv', './data/game_teams.csv')
+    League_Statistics.set_leagueCSV('./data/teams.csv', './data/games.csv', './data/game_teams.csv')
   end
   describe '#count_of_teams' do
     it 'can count teams' do

@@ -5,7 +5,7 @@ class League_Statistics
 @@game = nil
 @@game_teams = nil
 
-  def self.set_gameCSV(teams, games, game_teams)
+  def self.set_leagueCSV(teams, games, game_teams)
     @@teams = CSVHelper.teamsCSV(teams)
     @@games = CSVHelper.gamesCSV(games)
     @@game_teams = CSVHelper.game_teamsCSV(game_teams)

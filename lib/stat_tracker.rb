@@ -4,6 +4,10 @@ class StatTracker
     @games = locations[:games]
     @teams = locations[:teams]
     @game_teams = locations[:game_teams]
+
+    GameStatistics.set_gamecsv(@games)
+    GameStatistics.set_leagueCSV(@teams, @games, @game_teams)
+    GameStatistics.set_seasoncsv(@games, @game_teams, @teams)
   end
 
   def self.from_csv(locations)

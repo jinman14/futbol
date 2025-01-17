@@ -2,7 +2,7 @@ require './lib/csv_helper'
 require 'pry'
 
 class SeasonStatistics
-  def self.set_gamescsv(games, game_teams, teams)
+  def self.set_seasoncsv(games, game_teams, teams)
     @@games = CSVHelper.gamesCSV(games)
     @@game_teams = CSVHelper.game_teamsCSV(game_teams)
     @@teams = CSVHelper.teamsCSV(teams)
