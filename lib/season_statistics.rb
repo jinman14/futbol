@@ -1,6 +1,7 @@
 class SeasonStatistics
   @@games = CSVHelper.gamesCSV('./data/games.csv')
-
+  @@teams = CSVHelper.teamsCSV('./data/teams.csv')
+  @@game_teams = CSVHelper.game_teamsCSV('./data/game_teams.csv')
   # def self.winningest_coach
 
   #   StatsHelper.seasons.each do |season|
@@ -22,31 +23,48 @@ class SeasonStatistics
   # end
 
   def self.most_tackles(season)
-    game_teams_in_season = self.game_teams_in_season(season)
-    tackles_per_team = {}
-
-    game_teams_in_season.each do |game_team|
+    season_game_teams = self.game_teams_in_season(season)
+    tackles_per_team = Hash.new(0)
+    
+    season_game_teams.each do |game_team|
       tackles_per_team[game_team.team_id] += game_team.tackles
     end
-
-    most_tackles = tackles_per_team.max_by { |team_id, tackles| tackles}.team_name
-    most_tackles
+    
+    most_tackles = tackles_per_team.max_by { |team_id, tackles| tackles }[0]
+    @@teams.find do |team|
+      team.team_id == most_tackles
+    end.team_name
   end
 
-  # def fewest_tackles()
+  def self.fewest_tackles(season)
+    season_game_teams = self.game_teams_in_season(season)
+    tackles_per_team = Hash.new(0)
     
+    season_game_teams.each do |game_team|
+      tackles_per_team[game_team.team_id] += game_team.tackles
+    end
+    
+    fewest_tackles = tackles_per_team.min_by { |team_id, tackles| tackles }[0]
+    @@teams.find do |team|
+      team.team_id == fewest_tackles
+    end.team_name
+  end
+  
+  # def fewest_tackles()
+  
   # end
-
+  
   def coach_win_percent(coach)
     search_coach = coach
-
+    
     
   end
-end
-
-private
-
-def self.game_teams_in_season(season)
-  games = @@games.find_all { |game| game.season == season.to_i }.map { |game| game.game_id }
-  @@game_teams.find_all { |game| games.include?(game.game_id) }
+  
+  private
+  
+  def self.game_teams_in_season(season)
+    # binding.pry
+    games = @@games.find_all { |game| game.season == season.to_i }.map { |game| game.game_id }
+    @@game_teams.find_all { |game| games.include?(game.game_id) }
+  end
 end
