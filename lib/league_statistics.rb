@@ -1,81 +1,82 @@
 require './lib/csv_helper'
 
 class League_Statistics
+@@teams = nil
+@@game = nil
+@@game_teams = nil
 
-  attr_reader :games, :teams, :game_teams
-  
-  def initialize(teams, games, game_teams)
-    @teams = CSVHelper.teamsCSV(teams)
-    @games = CSVHelper.gamesCSV(games)
-    @game_teams = CSVHelper.game_teamsCSV(game_teams)
+  def self.set_gameCSV(teams, games, game_teams)
+    @@teams = CSVHelper.teamsCSV(teams)
+    @@games = CSVHelper.gamesCSV(games)
+    @@game_teams = CSVHelper.game_teamsCSV(game_teams)
   end
 
-  def count_of_teams
-    @teams.count
+  def self.count_of_teams
+    @@teams.count
   end
 
-  def best_offense
-    teams_average_offence = average_offence
+  def self.best_offense
+    teams_average_offense = self.average_offense
 
-    best_offence_id = teams_average_offence.max_by { |team_id, average_goals| average_goals }[0]
+    best_offense_id = teams_average_offense.max_by { |team_id, average_goals| average_goals }[0]
 
-    @teams.select { |team| team.team_id == best_offence_id }[0].team_name
+    @@teams.select { |team| team.team_id == best_offense_id }[0].team_name
   end
 
-  def worst_offense
-    teams_average_offence = average_offence
+  def self.worst_offense
+    teams_average_offense = self.average_offense
 
-    worst_offence_id = teams_average_offence.min_by { |team_id, average_goals| average_goals }[0]
+    worst_offense_id = teams_average_offense.min_by { |team_id, average_goals| average_goals }[0]
 
-    @teams.select { |team| team.team_id == worst_offence_id }[0].team_name
+    @@teams.select { |team| team.team_id == worst_offense_id }[0].team_name
   end
 
-  def highest_scoring_visitor
+  def self.highest_scoring_visitor
     highest_visitor = goals(:away).max_by { |team_id, average_goals| average_goals}[0]
 
-    @teams.select { |team| team.team_id == highest_visitor }[0].team_name
+    @@teams.select { |team| team.team_id == highest_visitor }[0].team_name
   end
 
-  def highest_scoring_home_team
+  def self.highest_scoring_home_team
     highest_home_team = goals(:home).max_by { |team_id, average_goals| average_goals}[0]
 
-    @teams.select { |team| team.team_id == highest_home_team }[0].team_name
+    @@teams.select { |team| team.team_id == highest_home_team }[0].team_name
   end
 
-  def lowest_scoring_visitor
+  def self.lowest_scoring_visitor
     lowest_visitor = goals(:away).min_by { |team_id, average_goals| average_goals}[0]
 
-    @teams.select { |team| team.team_id == lowest_visitor }[0].team_name
+    @@teams.select { |team| team.team_id == lowest_visitor }[0].team_name
   end
 
-  def lowest_scoring_home_team
+  def self.lowest_scoring_home_team
     lowest_home_team = goals(:home).min_by { |team_id, average_goals| average_goals}[0]
 
-    @teams.select { |team| team.team_id == lowest_home_team }[0].team_name
+    @@teams.select { |team| team.team_id == lowest_home_team }[0].team_name
   end
 
-  def games_played(team_id)
-    @game_teams.find_all do |game_team|
+  def self.games_played(team_id)
+    @@game_teams.find_all do |game_team|
       game_team.team_id == team_id
     end.count
   end
 
   private
 
-  def average_offence
+  def self.average_offense
     games = team_games
     team_ids = StatsHelper.team_ids
 
-    teams_offence = {}
+    teams_offense = {}
 
     team_ids.each do |team_id|
-      teams_offence[team_id] = games[team_id].sum { |game| game.goals } / (games[team_id].count).to_f
+      teams_offense[team_id] = games[team_id].sum { |game| game.goals } / (games[team_id].count).to_f
     end
 
-    teams_offence
+    teams_offense
   end
 
-  def team_games
+  def self.team_games
     team_games = {}
     team_ids = StatsHelper.team_ids
 
@@ -83,14 +84,14 @@ class League_Statistics
       team_games[team_id] = []
     end
 
-    @game_teams.each do |team_game|
+    @@game_teams.each do |team_game|
       team_games[team_game.team_id] << team_game
     end
 
     team_games
   end
 
-  def home_or_away_games(home_or_away)
+  def self.home_or_away_games(home_or_away)
     games = {}
     team_ids = StatsHelper.team_ids
 
@@ -98,7 +99,7 @@ class League_Statistics
       games[team_id] = []
     end
 
-    @games.each do |game|
+    @@games.each do |game|
       if home_or_away == :home
         games[game.home_team_id] << game
       elsif home_or_away == :away
@@ -109,7 +110,7 @@ class League_Statistics
     games
   end
 
-  def goals(home_or_away)
+  def self.goals(home_or_away)
 
     team_ids = StatsHelper.team_ids
     games = home_or_away_games(home_or_away)
