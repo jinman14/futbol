@@ -8,6 +8,10 @@ require 'pry'
 
 
 describe GameStatistics do
+    before(:all) do
+        GameStatistics.set_gamecsv('./data/games.csv')
+    end
+
     describe '#self.highest_total_score' do
         it 'can return the highest scored game' do
             expect(GameStatistics.highest_total_score).to eq 11
