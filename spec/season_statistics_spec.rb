@@ -9,6 +9,10 @@ require 'pry'
 
 
 RSpec.describe SeasonStatistics do
+  before :all do
+    SeasonStatistics.set_gamescsv('./data/games.csv', './data/game_teams.csv', './data/teams.csv')
+  end
+
   describe 'tackle assessment' do
     it 'can tell about tackles' do
       expect(SeasonStatistics.most_tackles("20132014")).to eq("FC Cincinnati")

@@ -2,10 +2,11 @@ require './lib/csv_helper'
 require 'pry'
 
 class SeasonStatistics
-  @@games = CSVHelper.gamesCSV('./data/games.csv')
-
-  @@game_teams = CSVHelper.game_teamsCSV('./data/game_teams.csv')
-  @@teams = CSVHelper.teamsCSV('./data/teams.csv')
+  def self.set_gamescsv(games, game_teams, teams)
+    @@games = CSVHelper.gamesCSV(games)
+    @@game_teams = CSVHelper.game_teamsCSV(game_teams)
+    @@teams = CSVHelper.teamsCSV(teams)
+  end
 
   def self.winningest_coach(season)
     season_games = self.game_teams_in_season(season)
