@@ -1,11 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/stat_tracker'
-require './lib/game_statistics'
-require './lib/league_statistics'
-require './lib/season_statistics'
-require './lib/stats_helper'
+require './spec/spec_helper'
 
 RSpec.describe StatTracker do
   before(:all) do

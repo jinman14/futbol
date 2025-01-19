@@ -1,8 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/team'
-
+require './spec/spec_helper'
 
 describe Team do
     before :each do
