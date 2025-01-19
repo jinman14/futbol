@@ -1,0 +1,6 @@
+game_id,season,type,date_time,away_team_id,home_team_id,away_goals,home_goals,venue,venue_link
+1,1,Postseason,5/16/13,4,6,2,2,Toyota,/api/v1/venues/null
+2,2,Postseason,7/11/13,4,6,2,2,Toyota,/api/v1/venues/null
+3,1,Postseason,5/16/13,4,6,2,2,Toyota,/api/v1/venues/null
+4,2,Postseason,7/11/13,4,6,2,2,Toyota,/api/v1/venues/null
+5,2,Postseason,7/11/13,4,6,2,2,Toyota,/api/v1/venues/null
