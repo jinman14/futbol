@@ -2,6 +2,7 @@ require './spec/spec_helper'
 
 describe GameStatistics do
     before(:all) do
+        StatsHelper.set_teams('./data/teams.csv', './data/game_teams.csv', './data/games.csv')
         GameStatistics.set_gamecsv('./data/games.csv')
     end
 

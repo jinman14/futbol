@@ -2,6 +2,7 @@ require './spec/spec_helper'
 
 RSpec.describe SeasonStatistics do
   before :all do
+    StatsHelper.set_teams('./data/teams.csv', './data/game_teams.csv', './data/games.csv')
     SeasonStatistics.set_seasoncsv('./data/games.csv', './data/game_teams.csv', './data/teams.csv')
   end
 

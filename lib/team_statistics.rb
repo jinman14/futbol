@@ -6,6 +6,7 @@ class TeamStatistics
     @@teams = CSVHelper.teamsCSV(teamcsv)
     @@game_teams = CSVHelper.game_teamsCSV(game_teams)
     @@games = CSVHelper.gamesCSV(games)
+    # binding.pry
   end
 
   def self.team_info(team_id)
@@ -29,11 +30,22 @@ class TeamStatistics
     end[0].to_s
   end
   
+  def self.worst_season(team_id)
+    team = self.find_team(team_id)
+    games_by_season = self.game_id_by_season(team)
+    game_teams_by_season = self.team_games_by_season(games_by_season)
+    # binding.pry
+    thing = game_teams_by_season.min_by do |season, games|
+      self.team_win_percent(games)
+     end[0].to_s
+    # binding.pry
+  end
+  
   private
 
   def self.find_team(team_id)
     team_id = team_id.to_i
-    @@teams.find{ |team| team.team_id == team_id}
+    @@teams.find { |team| team.team_id == team_id }
   end
 
   def self.team_games_by_season(gamehash)
@@ -42,11 +54,13 @@ class TeamStatistics
     games_seasons = {}
     seasons.each { |season| games_seasons[season] = [] }
     gamehash.each do |season, games|
-      games = games.map do |game|
-        @@game_teams.find { |game_team| game_team.team_id == game.home_team_id || game_team.team_id == game.away_team_id }
+      # binding.pry
+      games.each do |game|
+        games_seasons[season] << @@game_teams.find { |game_team| game_team.game_id == game.game_id }
+      # binding.pry
       end
-      games_seasons[season] = games
     end
+    # binding.pry
     games_seasons
   end
 
@@ -63,8 +77,8 @@ class TeamStatistics
     seasons = StatsHelper.seasons
     game_seasons = {}
     seasons.each { |season| game_seasons[season] = [] }
-    # binding.pry
     games.each do |game|
+      # binding.pry
       game_seasons[game.season] << game
     end
     # binding.pry

@@ -2,6 +2,7 @@ require './spec/spec_helper'
 
 describe League_Statistics do
   before :all do
+    StatsHelper.set_teams('./data/teams.csv', './data/game_teams.csv', './data/games.csv')
     League_Statistics.set_leagueCSV('./data/teams.csv', './data/games.csv', './data/game_teams.csv')
   end
   describe '#count_of_teams' do

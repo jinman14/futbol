@@ -4,10 +4,11 @@ require './lib/team'
 require './lib/game_team'
 
 class StatsHelper
-  @@games = CSVHelper.gamesCSV('./data/games.csv')
-  @@teams = CSVHelper.teamsCSV('./data/teams.csv')
-  @@game_teams = CSVHelper.game_teamsCSV('./data/game_teams.csv')
-
+  def self.set_teams(teamcsv, game_teams, games)
+    @@teams = CSVHelper.teamsCSV(teamcsv)
+    @@game_teams = CSVHelper.game_teamsCSV(game_teams)
+    @@games = CSVHelper.gamesCSV(games)
+  end
   def self.seasons
     seasons = []
     
