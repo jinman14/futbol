@@ -5,7 +5,7 @@ class TeamStatistics
   end
 
   def self.team_info(team_id)
-    team = @@teams.find{ |team| team.team_id == team_id}
+    team = self.find_team(team_id)
     {
       'team_id' => team.team_id.to_s,
       'franchise_id' => team.franchise_id.to_s,
@@ -16,5 +16,8 @@ class TeamStatistics
   end
 
   private
-  
+
+  def self.find_team(team_id)
+    @@teams.find{ |team| team.team_id == team_id}
+  end
 end
