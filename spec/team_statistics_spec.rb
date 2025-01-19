@@ -2,7 +2,7 @@ require './spec/spec_helper'
 
 describe TeamStatistics do
   before :all do
-    TeamStatistics.set_teams('./data/teams.csv', './data/game_teams.csv')
+    TeamStatistics.set_teams('./data/teams.csv', './data/game_teams.csv', './data/games.csv')
   end
 
   describe '#team_info' do
