@@ -100,7 +100,6 @@ class SeasonStatistics
       total_accuracy = games.sum { |game| game.goals.to_f / game.shots }
       accuracy[team_id] =  total_accuracy / games.size
     end
-    binding.pry
     accuracy
   end
 
