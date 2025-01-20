@@ -1,11 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/csv_helper'
-require './lib/season_statistics'
-require './lib/team'
-require './lib/game_team'
-require 'pry'
+require './spec/spec_helper'
 
 
 RSpec.describe SeasonStatistics do

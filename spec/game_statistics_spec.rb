@@ -1,10 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/game_statistics'
-require './lib/stats_helper'
-
-require 'pry'
+require './spec/spec_helper'
 
 
 describe GameStatistics do
