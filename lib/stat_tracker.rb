@@ -2,7 +2,6 @@
 require_relative 'game_statistics'
 require_relative 'game_team'
 require_relative 'game'
-require_relative 'league_stat_helper'
 require_relative 'league_statistics'
 require_relative 'season_statistics'
 require_relative 'stats_helper'
