@@ -1,7 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/game'
+require './spec/spec_helper'
 
 
 describe Game do

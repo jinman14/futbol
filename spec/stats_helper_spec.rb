@@ -1,11 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/stats_helper'
-require './lib/csv_helper'
-require './lib/game'
-require './lib/team'
-require './lib/game_team'
+require './spec/spec_helper'
 
 
 RSpec.describe StatsHelper do

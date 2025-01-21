@@ -1,11 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'rspec'
-require './lib/csv_helper'
-require './lib/season_statistics'
-require './lib/team'
-require './lib/game_team'
-require 'pry'
+require './spec/spec_helper'
 
 
 RSpec.describe SeasonStatistics do
@@ -35,7 +28,7 @@ RSpec.describe SeasonStatistics do
   describe 'assess team shot percentage' do
     it 'most_accurate_team' do
       expect(SeasonStatistics.most_accurate_team("20132014")).to eq "Real Salt Lake"
-      # expect(SeasonStatistics.most_accurate_team("20142015")).to eq "Toronto FC"
+      expect(SeasonStatistics.most_accurate_team("20142015")).to eq "Toronto FC"
     end
 
     it 'least_accurate_team' do
