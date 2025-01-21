@@ -1,5 +1,6 @@
 require 'csv'
 require 'pry'
+
 class CSVHelper
 
     def self.teamsCSV(filepath)

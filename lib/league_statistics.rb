@@ -1,4 +1,4 @@
-require './lib/csv_helper'
+require_relative './csv_helper'
 
 class League_Statistics
 @@teams = nil
